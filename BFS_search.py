@@ -42,4 +42,4 @@ hard_initial_state=[2,8,1,4,6,3,0,7,5]
 solution=breadth_first_search(hard_initial_state)
 solution=solution[:-1]
 solution.reverse()
-print('BFS MEDIUM SOLUTION:',solution)
+print('BFS HARD SOLUTION:',solution)
