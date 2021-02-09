@@ -17,31 +17,30 @@ state=[[1, 3, 4,
         4, 6, 3,
         0, 7, 5]]
 
-for i in range(0,1):
-    for k in range(1,50):
+print('BFS')
+for i in range(0, 3):
+    print('------------------------------------------')
+    for k in [1,1] + list(range(1,20)):
         all_times = []
         for j in range(1000):
             Puzzle.num_of_instances = 0
             total_time, solution, total_steps = breadth_first_search(state[i], k)
             all_times.append(total_time)
-        print(f"K = {k} | space : {Puzzle.num_of_instances} | total time : {np.average(all_times)} | total steps : {total_steps}")
-    #
-    # Puzzle.num_of_instances = 0
-    # t0 = time()
-    # astar = Astar_search(state[i])
-    # t1 = time() - t0
-    # print('A*:',astar)
-    # print('space:', Puzzle.num_of_instances)
-    # print('time:', t1)
-    # print()
-    #
-    # Puzzle.num_of_instances = 0
-    # t0 = time()
-    # RBFS = recursive_best_first_search(state[i])
-    # t1 = time() - t0
-    # print('RBFS:',RBFS)
-    # print('space:', Puzzle.num_of_instances)
-    # print('time:', t1)
-    # print()
+        print(
+            f"K = {k} | space : {Puzzle.num_of_instances} | total time : {np.average(all_times)} | "
+            f"total steps : {total_steps} | solution depth : {len(solution)} ")
 
+print(' ')
+print('A star')
+for i in range(0, 3):
     print('------------------------------------------')
+    for k in [1,1] + list(range(1,20)):
+        all_times = []
+        for j in range(100):
+            Puzzle.num_of_instances = 0
+            total_time, solution, total_steps = Astar_search(state[i], k)
+            all_times.append(total_time)
+        print(
+            f"K = {k} | space : {Puzzle.num_of_instances} | total time : {np.average(all_times)} | "
+            f"total steps : {total_steps} | solution depth : {len(solution)} ")
+
